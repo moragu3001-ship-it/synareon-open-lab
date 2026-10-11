@@ -73,6 +73,16 @@ durable per-unit timing where the projection repair lands.
 - A proposal-packaging fix must reduce admission-first-failures without
   merging ambiguous proposals (last-wins/guess repairs stay forbidden).
 
+## Proposed next step: bounded 1-Lane feasibility (status note)
+
+The current work-order direction proposes shortening the benchmark
+lifecycle with a bounded 1-Lane feasibility experiment (one execution
+lane, not necessarily one comparison arm) before broader multi-lane
+measurements. Status: PROPOSED NEXT STEP ONLY — no experiment manifest
+exists, no formal protocol is approved, and this proposal does not
+replace or supersede the 2x2 structure above. Formal EXP-004 execution
+requires its own approved manifest.
+
 ## Scope and known limitations
 
 - Micro-runs first; no formal 4-arm launch is authorized by this plan.

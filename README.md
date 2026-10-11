@@ -1,70 +1,79 @@
 # Synareon Open Lab
 
-Public research record of the Synareon project's coding-agent experiments:
-what was tried, what was actually measured, and what remains unknown.
+Public research record of the Synareon project's coding-agent
+experiments: what was tried, what was actually measured, and what
+remains unknown.
 
-## Why trustworthy coding-agent completion matters
+**Guiding message: Synareon is investigating trustworthy coding-agent
+completion through controlled experiments, including failures.**
+No performance improvement is claimed anywhere in this repository
+that is not demonstrated by sealed evidence.
 
-Coding agents routinely produce output that *looks* finished while being
-wrong, incomplete, or unverified. Synareon studies whether explicit,
-deterministic checks (proposal contracts, verification gates, sealed
-evidence) improve the rate at which agents reach genuinely complete,
-evaluator-passing solutions — and publishes the failures as carefully as
-any success.
+## Why This Project Exists
 
-## EXP-003 overview
+Coding agents routinely produce output that *looks* finished while
+being wrong, incomplete, or unverified. Synareon studies whether
+explicit, deterministic checks (proposal contracts, verification
+gates, sealed evidence) improve the rate at which agents reach
+genuinely complete, evaluator-passing solutions — and publishes the
+failures as carefully as any success.
 
-EXP-003 (run `EXP-003-F`, revision R3) was a 4-arm factorial benchmark of
-deterministic assurance versus raw agent execution: A raw agent, B skills
-only, C harness governance only, D skills plus harness. 132 logical units
-planned; 131 sealed; 1 censored with no imputation. Status:
-`TERMINATED_INCOMPLETE` / `CLOSED_WITH_CENSORED_UNIT`.
+## Experiment Timeline
 
-## Key actual results (observed, not claimed as proof)
+### EXP-001 — Long-Horizon Feasibility (`TERMINATED_EARLY`)
 
-- Qualified Completion (evaluator-passed + sealed, the only hard gate):
-  **5/131 (3.8%)** — A 1/33, B 4/33, C 0/32, D 0/33.
-- The evaluator ran on all 65 governed seals and passed none. No
-  successful governed mutation was observed.
-- Primary paired comparison (D vs B, n=33): B 4, D 0 — descriptive gap
-  over 4 events, not a significance result.
-- **Interpretation:** EXP-003 is a negative result. It does not demonstrate
-  harness superiority, and no such claim is made. Details:
-  [`experiments/EXP-003/RESULTS.md`](experiments/EXP-003/RESULTS.md).
+SCBench 468-unit formal run stopped at 12 sealed units: the 1500s-class
+budget envelope proved unfit for long-horizon execution (11 timeouts).
+No benchmark verdict was made — the envelope, not the agent, decided.
+[`experiments/EXP-001/README.md`](experiments/EXP-001/README.md)
 
-## Limitations and negative outcomes (read before citing)
+### EXP-002 — Cost-Controlled Matrix (`EARLY_TERMINATED`)
 
-Governed-arm failures mix proposal-contract rejection, agent stalls, and
-unmeasured harness failure modes; usage data covers 33/131 units
-(governed-arm cost UNKNOWN); lane equals model by design, so no model
-ranking is possible; one unit is censored and irrecoverable. Full list:
-[`experiments/EXP-003/LIMITATIONS.md`](experiments/EXP-003/LIMITATIONS.md).
+468-unit formal run stopped at 86 sealed units by explicit Project
+Owner decision: the B/D paired contrast rested on a single task, so
+further measurement was not cost-efficient. Performance claim:
+NOT_ESTABLISHED. [`experiments/EXP-002/README.md`](experiments/EXP-002/README.md)
 
-## EXP-004 planned improvements (plan, not results)
+### EXP-003 — Controlled Benchmark and Negative Results
 
-EXP-004 is a planned follow-up: proposal-packaging discipline, durable
-attempt admission and liveness, bounded no-progress controls, and
-measurement projection — each as a falsifiable micro-experiment proposal.
-Status: **PLANNED. No EXP-004 results are claimed.**
-See [`experiments/EXP-004/EXPERIMENT_PLAN.md`](experiments/EXP-004/EXPERIMENT_PLAN.md).
+132 planned units, 131 sealed + 1 censored (no imputation):
+Qualified Completion 5/131 — A 1/33, B 4/33, C 0/32, D 0/33. The
+evaluator ran on all 65 governed seals and passed none. A negative
+result: no harness superiority demonstrated, none claimed.
+[`experiments/EXP-003/RESULTS.md`](experiments/EXP-003/RESULTS.md)
 
-## Evidence and reproducibility
+## What We Learned
 
-Aggregate results plus content hashes are published here. Raw per-unit
-streams, session transcripts, and internal endpoints are not published.
-What is public, what is private, and what would be needed to reproduce
-this work: [`docs/EVIDENCE_AND_DISCLOSURE.md`](docs/EVIDENCE_AND_DISCLOSURE.md).
+1. Budget envelopes decide long-horizon outcomes before quality can be
+   measured (EXP-001) — calibrate timeouts first.
+2. Paired coverage must be scheduled deliberately, and measurement cost
+   fenced by decision evidence (EXP-002) — the stop protocol itself is
+   the reusable part.
+3. Narrower frozen benchmarks with hard gates produce decisive negative
+   results instead of inconclusive large ones (EXP-003) — but governed
+   failure modes still need separating from the hypothesis.
+4. Across all three: incomplete and censored outcomes are preserved as
+   findings, never imputed or topped up.
 
-## Experiment status and links
+## What EXP-004 Will Test
 
-| Experiment | Status | Detail |
-|---|---|---|
-| EXP-003-F R3 | `TERMINATED_INCOMPLETE`, `CLOSED_WITH_CENSORED_UNIT` | `experiments/EXP-003/` |
-| EXP-004 formal | PLANNED (not authorized, no results) | `experiments/EXP-004/` |
-| R6 implementation / smoke | separately closed / `CLOSED_WITH_NEGATIVE_QUALIFICATION`; live set route never observed | limitations §7 |
+Bounded repair proposals (packaging discipline, durable attempt
+admission and liveness, no-progress controls, measurement projection),
+each as a falsifiable micro-experiment. Status: PLANNED. No EXP-004
+results are claimed.
+[`experiments/EXP-004/EXPERIMENT_PLAN.md`](experiments/EXP-004/EXPERIMENT_PLAN.md)
 
-## License
+## Evidence and Limitations
 
-Apache License 2.0 (`LICENSE`). Public artifacts are original authorship
-summaries of internal experiment evidence. No third-party benchmark
-fixtures, skill packs, or datasets are redistributed.
+Aggregate results plus content hashes are public; raw per-unit streams,
+transcripts, endpoints, and fixtures are not (disclosed, not hidden).
+Limitations are part of the publication:
+[`experiments/EXP-003/LIMITATIONS.md`](experiments/EXP-003/LIMITATIONS.md),
+[`docs/EVIDENCE_AND_DISCLOSURE.md`](docs/EVIDENCE_AND_DISCLOSURE.md).
+
+## Next Experiments
+
+EXP-004 micro-runs first (proposal-packaging qualification, liveness
+fault-injection, admission-field trial, observability-first timeout
+work, seal-projection trial). No formal multi-lane launch is
+authorized by the current plan.
