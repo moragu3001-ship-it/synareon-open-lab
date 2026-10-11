@@ -35,10 +35,13 @@ envelope (1500s-class timeouts, 1M-token budget, 0 retries).
 
 ## Lessons Learned
 
-Long-horizon agent execution does not fit inside short per-unit
-envelopes: the budget, not the agent, decided 11 of 12 outcomes. Future
-runs need calibrated per-checkpoint timeouts or a redesigned envelope
-before any quality comparison is attempted.
+Long-horizon agent execution under short per-unit envelopes produced
+almost entirely timeouts: eleven of twelve sealed units terminated
+with TIMEOUT under the configured 1,500-second envelope. This
+prevented a meaningful assessment of completion quality; outcomes
+under longer or different envelopes remain unknown. Future runs need
+calibrated per-checkpoint timeouts or a redesigned envelope before
+any quality comparison is attempted.
 
 ## Next Step
 

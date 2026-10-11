@@ -13,9 +13,12 @@ Does deterministic assurance (Synareon harness governance: proposal
 contract + verification) improve trustworthy coding-agent convergence
 over raw agent execution, with and without skills?
 
-**Observed answer: no.** Governed arms recorded 0 qualified completions
-against 5 on ungoverned arms, with 1 unit censored. The incomplete
-termination itself is part of the result.
+**Observed answer: no Qualified Completion improvement was observed
+for the governed arms under the conditions of this experiment.**
+Governed arms recorded 0 qualified completions against 5 on ungoverned
+arms, with 1 unit censored. This is a descriptive negative result, not
+evidence that deterministic assurance cannot work in other settings.
+The incomplete termination itself is part of the result.
 
 ## Configuration (observed)
 
@@ -64,10 +67,12 @@ tests). No successful governed mutation was observed.
 
 - Proposal packaging: 33/131 sealed units (25.2%) failed first at proposal
   admission; 33/65 governed units (50.8% of the observed governed
-  population C 32 + D 33). Of 131 scanned proposal files: NO_BLOCK 104
+  population C 32 + D 33). Among the 131 sealed units, the proposal
+  classifications were NO_BLOCK 104
   (A 33 / B 33 / C 17 / D 21; A/B no-block is by design through another
-  channel), SINGLE_CANONICAL_BLOCK 15, MULTI_BLOCK_AMBIGUOUS 12,
-  UNREADABLE 1 (censored unit). Cross-check of the 33 admission failures:
+  channel), SINGLE_CANONICAL_BLOCK 15, and MULTI_BLOCK_AMBIGUOUS 12.
+  One additional planned unit was censored and classified as
+  UNREADABLE; it was excluded from the sealed denominator. Cross-check of the 33 admission failures:
   12 genuinely ambiguous multi-block (fail-closed rejection correct),
   14 single-block rejected for other parse causes (leading prose confirmed
   8/8), 7 no-block. Rejections were never merged. Model-internal motive

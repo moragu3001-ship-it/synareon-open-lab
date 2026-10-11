@@ -28,10 +28,11 @@ cost-efficient.
 
 ## Failures and Limitations
 
-- The B/D paired contrast rested on a single unique task
-  (circuit_eval-01 on all three lanes) — one usable paired observation
-  after arm-major scheduling collapsed paired coverage. The primary
-  hypothesis was not established, not refuted.
+- The available B/D paired coverage was limited to one unique task,
+  circuit_eval-01, observed across three lanes. These lane-level
+  observations do not provide sufficient task diversity to establish
+  the primary performance hypothesis, which remains NOT_ESTABLISHED
+  (not refuted) after arm-major scheduling collapsed paired coverage.
 - 382 units unsealed. No graceful-stop runner command existed (stop by
   quiescence verification, no kills performed).
 - Agent version for this run is not verified in the cited records.

@@ -22,9 +22,11 @@ failures as carefully as any success.
 
 ### EXP-001 — Long-Horizon Feasibility (`TERMINATED_EARLY`)
 
-SCBench 468-unit formal run stopped at 12 sealed units: the 1500s-class
-budget envelope proved unfit for long-horizon execution (11 timeouts).
-No benchmark verdict was made — the envelope, not the agent, decided.
+SCBench 468-unit formal run stopped at 12 sealed units: eleven of
+twelve sealed units terminated with TIMEOUT under the configured
+1,500-second envelope, which proved unfit for long-horizon execution.
+Outcomes under longer or different envelopes remain unknown. No
+benchmark verdict was made.
 [`experiments/EXP-001/README.md`](experiments/EXP-001/README.md)
 
 ### EXP-002 — Cost-Controlled Matrix (`EARLY_TERMINATED`)
@@ -44,8 +46,10 @@ result: no harness superiority demonstrated, none claimed.
 
 ## What We Learned
 
-1. Budget envelopes decide long-horizon outcomes before quality can be
-   measured (EXP-001) — calibrate timeouts first.
+1. Eleven of twelve sealed units timed out under the configured
+   1500s envelope, preventing quality assessment (EXP-001) —
+   calibrate timeouts first; outcomes under other envelopes remain
+   unknown.
 2. Paired coverage must be scheduled deliberately, and measurement cost
    fenced by decision evidence (EXP-002) — the stop protocol itself is
    the reusable part.
@@ -65,8 +69,18 @@ results are claimed.
 
 ## Evidence and Limitations
 
-Aggregate results plus content hashes are public; raw per-unit streams,
-transcripts, endpoints, and fixtures are not (disclosed, not hidden).
+Publicly verifiable here: public Git commit and tree identities,
+committed document content, published aggregate results, the public
+result-summary CSV, and document relationships and limitations.
+Internally retained and not included in this publication: raw
+per-unit evidence, sealed experiment receipts, internal evidence
+hashes and claim-to-evidence records, session transcripts, and
+internal execution metadata. Public document integrity can be
+checked through Git commit and blob identities. The authoritative
+per-unit raw evidence and its internal integrity records are
+retained privately and are not included in this publication. Full
+independent reproduction is therefore not possible from the public
+documents alone.
 Limitations are part of the publication:
 [`experiments/EXP-003/LIMITATIONS.md`](experiments/EXP-003/LIMITATIONS.md),
 [`docs/EVIDENCE_AND_DISCLOSURE.md`](docs/EVIDENCE_AND_DISCLOSURE.md).

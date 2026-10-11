@@ -12,11 +12,15 @@ measurement projection). Source authority revision HEAD
 ## What is public here
 
 Aggregate results, paired differences with denominators, failure
-distributions, censoring receipts in aggregate form, and content hashes.
-Every numerical result in `experiments/EXP-003/RESULTS.md` was recomputed
+distributions, censoring receipts in aggregate form, the public
+result-summary CSV, and the Git commit, tree, and blob identities of
+the committed documents. Every numerical result in `experiments/EXP-003/RESULTS.md` was recomputed
 from the unit-level sealed evidence (132 rows: 131 sealed + 1 censored)
 before publication; the claim-to-evidence record is retained by the
-authors and available to reviewers on request.
+authors and available to reviewers on request. Public document
+integrity can be checked through Git commit and blob identities; the
+authoritative per-unit raw evidence and its internal integrity
+records are retained privately and are not included here.
 
 ## What is private and why
 
@@ -34,9 +38,12 @@ sealed units. Agreement is expected only at the level of failure modes
 (governance blocking, timeout classes, censoring risk), never at
 per-unit outcomes. Prerequisites: lane models (or declared substitutes —
 substitution breaks comparability), Codex CLI 0.160.0 (or declared
-equivalent), frozen task panel reconstructed from hashes, and the
-measurement-projection fixes listed as EXP-004 requirements for governed
-cost capture.
+equivalent), frozen task panel reconstructed from the referenced frozen
+harness inputs (revision identifiers point at internal frozen inputs;
+no task or fixture hash values are published in this repository), and
+the measurement-projection fixes listed as EXP-004 requirements for
+governed cost capture. Full independent reproduction is therefore not
+possible from the public documents alone.
 
 ## Disclosure of negative and incomplete outcomes
 

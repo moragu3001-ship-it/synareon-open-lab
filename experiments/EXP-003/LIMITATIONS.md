@@ -48,8 +48,10 @@ results without them is incomplete.
     published as failure truth: negative result, incomplete execution,
     preserved censoring.
 11. **No public raw.** Public artifacts are aggregate-only sanitized
-    derivatives plus content hashes. Full reproduction needs internal
-    evidence; raw streams are not part of this publication (neither as
-    commits nor as Release assets). Frozen tasks are referenced by hash
-    plus reproduction instructions, never by redistributed fixture
-    content.
+    derivatives; public document integrity is checkable through the
+    Git commit and blob identities of this repository. Full
+    reproduction needs internal evidence; raw streams are not part of
+    this publication (neither as commits nor as Release assets).
+    Frozen tasks are identified by references to the frozen harness
+    inputs — no task or fixture hash values are published in this
+    repository, and fixture content is never redistributed.
