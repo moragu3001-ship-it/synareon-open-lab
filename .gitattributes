@@ -1,0 +1,2 @@
+# Preserve exact reviewed bytes: no line-ending conversion.
+* -text
